@@ -1,0 +1,12 @@
+package com.example.PenFond;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class PenFondApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(PenFondApplication.class, args);
+	}
+}

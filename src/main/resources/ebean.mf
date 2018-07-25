@@ -1,0 +1,3 @@
+entity-packages: com.example.PenFond
+transactional-packages: com.example
+querybean-packages: com.example
