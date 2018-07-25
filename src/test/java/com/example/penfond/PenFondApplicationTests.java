@@ -1,4 +1,4 @@
-package com.example.PenFond;
+package com.example.penfond;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

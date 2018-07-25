@@ -1,4 +1,4 @@
-package com.example.PenFond;
+package com.example.penfond;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
