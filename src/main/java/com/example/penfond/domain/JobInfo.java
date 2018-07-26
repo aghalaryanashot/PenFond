@@ -2,6 +2,7 @@ package com.example.penfond.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
@@ -9,10 +10,15 @@ import java.util.Date;
 public class JobInfo {
     @Id
     private long id;
+
+    @ManyToOne
     @NotNull
     private Person person;
+
+    @ManyToOne
     @NotNull
     private Company company;
+
     @NotNull
     private int baseRate;
     private Date dateArrival;
