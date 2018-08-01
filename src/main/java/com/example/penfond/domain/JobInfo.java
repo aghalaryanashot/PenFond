@@ -1,14 +1,13 @@
 package com.example.penfond.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
 public class JobInfo {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     @ManyToOne
@@ -24,9 +23,12 @@ public class JobInfo {
     private Date dateArrival;
     private Date dateExit;
 
+    public JobInfo() {
+    }
+
     public JobInfo(
-            @NotNull Person person,
-            @NotNull Company company,
+            Person person,
+            Company company,
             int baseRate,
             Date arrivaldate,
             Date datedeparture
@@ -39,8 +41,8 @@ public class JobInfo {
     }
 
     public JobInfo(
-            @NotNull Person person,
-            @NotNull Company company,
+            Person person,
+            Company company,
             int baseRate,
             Date arrivaldate
     ) {
@@ -48,5 +50,29 @@ public class JobInfo {
         this.company = company;
         this.baseRate = baseRate;
         this.dateArrival = arrivaldate;
+    }
+
+    public int getBaseRate() {
+        return baseRate;
+    }
+
+    public void setBaseRate(int baseRate) {
+        this.baseRate = baseRate;
+    }
+
+    public Date getDateArrival() {
+        return dateArrival;
+    }
+
+    public void setDateArrival(Date dateArrival) {
+        this.dateArrival = dateArrival;
+    }
+
+    public Date getDateExit() {
+        return dateExit;
+    }
+
+    public void setDateExit(Date dateExit) {
+        this.dateExit = dateExit;
     }
 }
