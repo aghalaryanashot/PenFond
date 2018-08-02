@@ -23,4 +23,9 @@ public class PersonService {
         return person;
     }
 
+    public Person prname(String name){
+        return server.find(Person.class).findOne();
+    }
+
+
 }

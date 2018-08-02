@@ -33,7 +33,8 @@ public class PersonController {
             Map<String, Object> model
     ) {
         model.put("persons", personService.getAllPersons());
-
+        model.put("company", companyService.getAllCompany());
+        model.put("jobInfo", jobInfoService.getAllJobInf());
         return "listPersons";
     }
 
@@ -41,6 +42,15 @@ public class PersonController {
     @GetMapping(value = "/persons1")
     public List<Person> getAll() {
         return personService.getAllPersons();
+    }
+
+    @ResponseBody
+    @GetMapping(value = "/persons7")
+    public void oneList(
+            @RequestParam(name = "name") String name,
+            Map<String, Object> model
+    ){
+        model.put("persone", personService.prname(name));
     }
 
     @ResponseBody

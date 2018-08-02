@@ -25,10 +25,11 @@
     <ul>
         {{#persons}}
         <li>
-            <h3>{{id}} {{firstName}} {{lastName}} {{patronymic}} {{inn}} {{snils}} {{dateOfBirth}}</h3>
+            <h3>{{id}}   {{firstName}}    {{lastName}}    {{patronymic}}   {{inn}}   {{snils}}   {{dateOfBirth}}</h3>
         </li>
         {{/persons}}
     </ul>
+
     <h1>Company</h1>
     <ul>
         {{#company}}
@@ -38,6 +39,19 @@
         {{/company}}
     </ul>
 
-</main>>
+    <h1>JobInfo</h1>
+    <ul>
+        {{#jobInfo}}
+        <li>
+            <h3>{{baseRate}} {{dateArrival}}</h3>
+        </li>
+        {{/jobInfo}}
+    </ul>
+
+    <form method="get">
+        <input type="text" placeholder="Имя" name="name"/>
+        <input type="submit"/>
+    </form>
+</main>
 </body>
 </html>
