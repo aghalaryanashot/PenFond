@@ -1,6 +1,7 @@
 package com.example.penfond.service;
 
 import com.example.penfond.domain.Person;
+import com.example.penfond.domain.query.QPerson;
 import io.ebean.EbeanServer;
 import io.ebean.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +24,9 @@ public class PersonService {
         return person;
     }
 
-    public Person prname(String name){
-        return server.find(Person.class).findOne();
+    public List<Person> findPersonsByFirstName(String name) {
+        return new QPerson(server)
+                .firstName.icontains(name)
+                .findList();
     }
-
-
 }

@@ -1,13 +1,12 @@
 package com.example.penfond.domain;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import io.ebean.annotation.NotNull;
 import java.util.Date;
 
 @Entity
 public class JobInfo {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     @ManyToOne

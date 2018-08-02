@@ -44,13 +44,13 @@ public class PersonController {
         return personService.getAllPersons();
     }
 
-    @ResponseBody
-    @GetMapping(value = "/persons7")
-    public void oneList(
+    @GetMapping(value = "/person_search")
+    public String personSearch(
             @RequestParam(name = "name") String name,
             Map<String, Object> model
     ){
-        model.put("persone", personService.prname(name));
+        model.put("persons", personService.findPersonsByFirstName(name));
+        return "listPersons";
     }
 
     @ResponseBody

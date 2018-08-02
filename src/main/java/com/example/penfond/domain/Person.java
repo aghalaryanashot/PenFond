@@ -2,7 +2,7 @@ package com.example.penfond.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
+import io.ebean.annotation.NotNull;
 import java.util.Date;
 
 @Entity
@@ -23,7 +23,7 @@ public class Person {
     public Person() {
     }
 
-    public Person(long id, @NotNull String firstName, @NotNull String lastName, String patronymic, @NotNull long inn, @NotNull long snils, @NotNull Date dateOfBirth) {
+    public Person(long id, String firstName, String lastName, String patronymic, long inn, long snils, Date dateOfBirth) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
