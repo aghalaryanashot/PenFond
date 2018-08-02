@@ -1,3 +1,7 @@
+configurations {
+	apt
+}
+
 buildscript {
 	ext {
 		springBootVersion = '2.0.3.RELEASE'
@@ -15,6 +19,7 @@ apply plugin: 'java'
 apply plugin: 'io.ebean'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'idea'
 
 
 bootJar {
@@ -34,22 +39,34 @@ repositories {
 
 dependencies {
 	compile("io.ebean:ebean:11.11.1")
+	apt("io.ebean:ebean:11.11.1")
+	compile("io.ebean:ebean-querybean:11.19.1")
+	compile("io.ebean:querybean-generator:11.19.1")
+
 	testCompile("org.avaje.composite:composite-testing:3.1")
 	compile('org.springframework.boot:spring-boot-starter-web')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
     compile("org.springframework.boot:spring-boot-starter-mustache")
     compile("org.springframework.boot:spring-boot-devtools")
-	compile("org.springframework.boot:spring-boot-starter-data-jpa")
     runtime("org.postgresql:postgresql")
     compile("javax.xml.bind:jaxb-api")
     testCompile("junit:junit")
 }
 
 ebean {
-	debugLevel = 1
+	debugLevel = 9
+	queryBeans = true
 }
+
 test {
 	useTestNG()
 	testLogging.showStandardStreams = true
 	testLogging.exceptionFormat = 'full'
+}
+
+idea {
+	module {
+		sourceDirs += file("$projectDir/generated")
+		generatedSourceDirs += file("$projectDir/generated")
+	}
 }
